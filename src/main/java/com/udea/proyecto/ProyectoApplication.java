@@ -23,7 +23,6 @@ public class ProyectoApplication {
 		MovimientoDinero transaccion1=new MovimientoDinero(empleado1,1000000);
 		MovimientoDinero transaccion2=new MovimientoDinero(empleado2,-500000);
 		
-
 	}
 
 }
