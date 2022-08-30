@@ -1,7 +1,11 @@
 package com.udea.proyecto.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "empresa")
 public class Empresa {
 
     private String nombreEmpresa;
