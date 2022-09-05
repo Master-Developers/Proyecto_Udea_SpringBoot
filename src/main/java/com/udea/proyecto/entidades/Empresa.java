@@ -1,17 +1,26 @@
 package com.udea.proyecto.entidades;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name = "empresa")
 public class Empresa {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_empresa")
+    private long id;
+    @Column(name = "nombre")
     private String nombreEmpresa;
+    @Column(name = ("nit"))
     private int nitEmpresa;
+    @Column(name = "telefono")
     private String telefonoEmpresa;
+    @Column (name="direccion")
     private String direccionEmpresa;
-
-    private ArrayList<Empleado> empleados;
-    private ArrayList<MovimientoDinero> transacciones;
-
+    @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
+    private List<Empleado> empleados;
     public Empresa(String nombreEmpresa, int nitEmpresa, String telefonoEmpresa, String direccionEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
         this.nitEmpresa = nitEmpresa;
@@ -58,19 +67,11 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    public ArrayList<Empleado> getEmpleados() {
+    public List<Empleado> getEmpleados() {
         return empleados;
     }
 
-    public void setEmpleados(ArrayList<Empleado> empleados) {
+    public void setEmpleados(List<Empleado> empleados) {
         this.empleados = empleados;
-    }
-
-    public ArrayList<MovimientoDinero> getTransacciones() {
-        return transacciones;
-    }
-
-    public void setTransacciones(ArrayList<MovimientoDinero> transacciones) {
-        this.transacciones = transacciones;
     }
 }

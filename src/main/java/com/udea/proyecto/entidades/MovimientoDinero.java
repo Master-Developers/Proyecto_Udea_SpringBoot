@@ -1,8 +1,19 @@
 package com.udea.proyecto.entidades;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "transacciones")
 public class MovimientoDinero {
     // Atributos-----------------------------------------------------------------------
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_transaccion")
+    private long id;
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empleado.class)
+    @JoinColumn(name = "id_empleado")
     private Empleado empleado;
+    @Column(name = "monto")
     private double monto;
 
     public MovimientoDinero(Empleado empleado, double monto) {
