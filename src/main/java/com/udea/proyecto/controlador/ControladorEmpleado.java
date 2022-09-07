@@ -9,21 +9,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RequestMapping("/empleado")
+@RequestMapping("/empleado") //Peticiones http
 @RestController
 public class ControladorEmpleado {
     @Autowired
     private ServicioEmpleado sic;
     @GetMapping
     public List<Empleado> listar(){
-        return sic.listarEmpleados()
+        return sic.listarEmpleados();
     }
     @PostMapping
     public Empleado insertar (@RequestBody Empleado emp){
-            return sic.guardarEmpleados(emp);
+
+        return sic.guardarEmpleados(emp);
         }
     @PutMapping
     public Empleado actualizar(@RequestBody Empleado emp){
-            return sic.actualizarEmpleados(emp);
+
+        return sic.actualizarEmpleados(emp);
         }
+    @DeleteMapping
+    public void delete(@RequestBody Empleado emp){
+        sic.borrarEmpleados(emp.getDocumento());
+
+    }
+
 }

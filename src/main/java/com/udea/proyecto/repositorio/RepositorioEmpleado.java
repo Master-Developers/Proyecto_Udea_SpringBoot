@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepositorioEmpleado extends JpaRepository<Empleado,Long> { //Tipo de Id empleado es long
 
-
 }
