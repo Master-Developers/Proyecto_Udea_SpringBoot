@@ -1,7 +1,8 @@
 package com.udea.proyecto.modelo;
-import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "MovimientoDinero")
@@ -12,14 +13,15 @@ public class MovimientoDinero {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "MovimientoDinero", length = 100, unique = true)
+    @Column(name = "descripcion", length = 100, unique = true)
+    private String descripcion;
+
+    @Column(name = "done", nullable = true, length = 5)
+    private String done;
+
+    @Column(name = "dueData", nullable = true, length = 5)
+    private String dueData;
     private String MovimientoDinero;
-
-    @Column(name = "codigo1", nullable = true, length = 5)
-    private String codigo1;
-
-    @Column(name = "codigo2", nullable = true, length = 5)
-    private String codigo2;
 
     public MovimientoDinero() {
     }
@@ -40,20 +42,20 @@ public class MovimientoDinero {
         this.MovimientoDinero = MovimientoDinero;
     }
 
-    public String getCodigo1() {
-        return codigo1;
+    public String getdescripcion() {
+        return descripcion;
     }
 
-    public void setCodigo2(String codigo2) {
-        this.codigo2 = codigo2;
+    public void setdone(String done) {
+        this.done = done;
     }
 
-    public String getCodigo3() {
-        return codigo3;
+    public String getdueData() {
+        return dueData;
     }
 
     public void setCodigo3(String codigo3) {
-        this.codigo3 = codigo3;
+        this.done = done;
     }
 
 }
