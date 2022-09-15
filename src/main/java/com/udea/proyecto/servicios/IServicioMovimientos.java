@@ -9,5 +9,5 @@ public interface IServicioMovimientos {
     public MovimientoDinero guardarMovimiento(MovimientoDinero mov);
     public MovimientoDinero buscarMovimientosId(Integer numid);
     public MovimientoDinero actualizarMovimientos(MovimientoDinero mov);
-    public void borrarEmpleados(Integer numid);
+    public void borrarMovimientos(Integer numid);
 }
