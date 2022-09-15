@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RequestMapping("/empleado") //Peticiones http
+@RequestMapping("/empleados") //Peticiones http
 @RestController
 public class ControladorEmpleado {
     @Autowired
@@ -19,19 +19,12 @@ public class ControladorEmpleado {
         return sic.listarEmpleados();
     }
     @PostMapping
-    public Empleado insertar (@RequestBody Empleado emp){
-
-        return sic.guardarEmpleados(emp);
-        }
+    public Empleado insertar (@RequestBody Empleado emp){ return sic.guardarEmpleados(emp); }
     @PutMapping
-    public Empleado actualizar(@RequestBody Empleado emp){
-
-        return sic.actualizarEmpleados(emp);
-        }
+    public Empleado actualizar(@RequestBody Empleado emp){return sic.actualizarEmpleados(emp); }
     @DeleteMapping
     public void delete(@RequestBody Empleado emp){
-        sic.borrarEmpleados(emp.getDocumento());
-
+        sic.borrarEmpleados(emp.getDocumento()); //Borra con documento no con id. Cambiar llave principal.
     }
 
 }

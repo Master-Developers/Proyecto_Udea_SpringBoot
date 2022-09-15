@@ -1,11 +1,14 @@
 package com.udea.proyecto.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "empresa")
+//@JsonIgnoreProperties({"empleados"})
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,14 +30,10 @@ public class Empresa {
         this.telefonoEmpresa = telefonoEmpresa;
         this.direccionEmpresa = direccionEmpresa;
     }
-
     public Empresa() {
     }
     //
-
-
     //getters y setters
-
     public String getNombreEmpresa() {
         return nombreEmpresa;
     }
@@ -73,5 +72,13 @@ public class Empresa {
 
     public void setEmpleados(List<Empleado> empleados) {
         this.empleados = empleados;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

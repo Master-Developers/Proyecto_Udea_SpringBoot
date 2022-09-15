@@ -1,6 +1,7 @@
 package com.udea.proyecto.entidades;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "transacciones")
@@ -10,11 +11,17 @@ public class MovimientoDinero {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_transaccion")
     private long id;
+    @Column(name = "monto")
+    private double monto;
+    @Column(name = "fecha")
+    private LocalDateTime fecha;
     @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empleado.class)
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
-    @Column(name = "monto")
-    private double monto;
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empresa.class)
+    @JoinColumn(name = "id_empresa")
+    private  Empresa empresa;
+
 
     public MovimientoDinero(Empleado empleado, double monto) {
         this.empleado = empleado;
@@ -58,6 +65,30 @@ public class MovimientoDinero {
 
     public void setMonto(double monto) {
         this.monto = monto;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }
 

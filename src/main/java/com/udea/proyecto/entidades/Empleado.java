@@ -1,10 +1,13 @@
 package com.udea.proyecto.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "empleados")
+@JsonIgnoreProperties({"empresa"})
 public class Empleado {
     // Atributos
     @Id
@@ -25,7 +28,7 @@ public class Empleado {
     @JoinColumn(name = "id_empresa")
     private Empresa empresa;
     @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL)
-    private List<MovimientoDinero>transacciones;
+    private List<MovimientoDinero>movimientos;
 
     public Empleado(String nombre,int documento,String celular, String correo, Empresa empresa, RolEmpleado rol) {
         this.documento = documento;
@@ -88,5 +91,21 @@ public class Empleado {
 
     public void setRol(RolEmpleado rol) {
         this.rol = rol;
+    }
+
+    public List<MovimientoDinero> getMovimientos() {
+        return movimientos;
+    }
+
+    public void setMovimientos(List<MovimientoDinero> movimientos) {
+        this.movimientos = movimientos;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
