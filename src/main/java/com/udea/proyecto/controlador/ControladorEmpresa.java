@@ -31,4 +31,10 @@ public class ControladorEmpresa {
         sic.borrarEmpresa(emp.getNitEmpresa()); //Se borra con nit no con id.
 
     }
+    @RequestMapping(value = "{id}",method = RequestMethod.GET,produces = "application/json")
+    @ResponseBody
+    public Empresa buscarId(@PathVariable Integer id){
+        Empresa emp = sic.buscarEmpresaId(id);
+        return emp;
+    }
 }

@@ -1,5 +1,6 @@
 package com.udea.proyecto.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "empleados")
-@JsonIgnoreProperties({"empresa"})
+//@JsonIgnoreProperties({"empresa"})
 public class Empleado {
     // Atributos
     @Id
@@ -24,9 +25,11 @@ public class Empleado {
     private String correo;
     @Column(name = "rol")
     private RolEmpleado rol; // Administratico operativo
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empresa.class)
     @JoinColumn(name = "id_empresa")
     private Empresa empresa;
+    @JsonIgnore
     @OneToMany(mappedBy = "empleado",cascade = CascadeType.ALL)
     private List<MovimientoDinero>movimientos;
 

@@ -1,10 +1,15 @@
 package com.udea.proyecto.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "transacciones")
+@JsonIgnoreProperties({"empresa","empleado"})
+//@JsonIgnoreProperties({"empleado"})
 public class MovimientoDinero {
     // Atributos-----------------------------------------------------------------------
     @Id
@@ -14,7 +19,8 @@ public class MovimientoDinero {
     @Column(name = "monto")
     private double monto;
     @Column(name = "fecha")
-    private LocalDateTime fecha;
+    private Date fecha;
+
     @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empleado.class)
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
@@ -75,11 +81,11 @@ public class MovimientoDinero {
         this.id = id;
     }
 
-    public LocalDateTime getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

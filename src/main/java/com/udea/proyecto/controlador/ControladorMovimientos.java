@@ -19,9 +19,12 @@ public class ControladorMovimientos {
         return sic.listarMovimientos();
     }
     @PostMapping
-    public MovimientoDinero insertar (@RequestBody MovimientoDinero mov){return sic.guardarMovimiento(mov); }
+    public MovimientoDinero insertar (@RequestBody MovimientoDinero mov){
+        return sic.guardarMovimiento(mov); }
     @PutMapping
     public MovimientoDinero actualizar(@RequestBody MovimientoDinero mov){return sic.actualizarMovimientos(mov); }
     @DeleteMapping
     public void delete(@RequestBody MovimientoDinero mov){ sic.borrarMovimientos((int) mov.getId()); }
+
+
 }

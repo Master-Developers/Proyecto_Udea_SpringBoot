@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ServicioEmpleado implements IServicioEmpleado {
@@ -36,5 +37,9 @@ public class ServicioEmpleado implements IServicioEmpleado {
     public void borrarEmpleados(Integer numid) {
         repositorioEmpleado.deleteById(numid.longValue());
 
+    }
+    @Override
+    public Empleado actualizarPorId(Long id, Map<Object, Object> objectMap) {
+        return null;
     }
 }

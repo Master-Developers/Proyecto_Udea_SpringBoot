@@ -1,9 +1,9 @@
 package com.udea.proyecto.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,8 +22,14 @@ public class Empresa {
     private String telefonoEmpresa;
     @Column (name="direccion")
     private String direccionEmpresa;
+    //@JsonIgnore
     @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
     private List<Empleado> empleados;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
+    private List<MovimientoDinero> movimientos;
+
     public Empresa(String nombreEmpresa, int nitEmpresa, String telefonoEmpresa, String direccionEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
         this.nitEmpresa = nitEmpresa;
