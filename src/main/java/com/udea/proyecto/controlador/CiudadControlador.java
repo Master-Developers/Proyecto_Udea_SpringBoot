@@ -4,44 +4,44 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import Empresa.apiempresa.modelo.*;
-import Empresa.apiempresa.servicio.*;
+import tiendavideo.apitiendavideo.modelo.*;
+import tiendavideo.apitiendavideo.servicio.*;
 
 @RestController
-@RequestMapping("/empresas")
-public class EmpresaControlador {
+@RequestMapping("/ciudades")
+public class CiudadControlador {
 
     @Autowired
-    private EmpresaServicio servicio;
+    private CiudadServicio servicio;
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
-    public List<Empresa> listar() {
+    public List<Ciudad> listar() {
         return servicio.listar();
     }
 
     @RequestMapping(value = "/obtener/{id}", method = RequestMethod.GET)
-    public Empresa obtener(@PathVariable long id) {
+    public Ciudad obtener(@PathVariable long id) {
         return servicio.obtener(id);
     }
 
     @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
-    public List<Empresa> buscar(@PathVariable String nombre) {
+    public List<Ciudad> buscar(@PathVariable String nombre) {
         return servicio.buscar(nombre);
     }
 
-    @RequestMapping(value = "/{nombre}/buscarempresas", method = RequestMethod.GET)
-    public List<Titulo> buscarEmpresas(@PathVariable String nombre) {
-        return servicio.buscarTitulos(nombre);
+    @RequestMapping(value = "/{nombre}/buscarclientes", method = RequestMethod.GET)
+    public List<Tercero> buscarClientes(@PathVariable String nombre) {
+        return servicio.buscarClientes(nombre);
     }
 
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
-    public Empresa crear(@RequestBody Empresa empresa) {
-        return servicio.guardar(empresa);
+    public Ciudad crear(@RequestBody Ciudad ciudad) {
+        return servicio.guardar(ciudad);
     }
 
     @RequestMapping(value = "/modificar", method = RequestMethod.PUT)
-    public Empresa actualizar(@RequestBody Empresa empresa) {
-        return servicio.guardar(empresa);
+    public Ciudad actualizar(@RequestBody Ciudad ciudad) {
+        return servicio.guardar(ciudad);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
@@ -49,4 +49,7 @@ public class EmpresaControlador {
         return servicio.eliminar(id);
     }
 
+}
+
+public class CiudadControlador {
 }

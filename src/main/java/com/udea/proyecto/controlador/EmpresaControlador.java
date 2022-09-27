@@ -1,15 +1,15 @@
 package com.udea.proyecto.controlador;
 
-import Empresa.apiempresa.servicio.*;
-import Empresa.apiempresa.modelo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tiendavideo.apitiendavideo.modelo.*;
+import tiendavideo.apitiendavideo.servicio.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/Empresa")
-public class ControladorEmpresa {
+@RequestMapping("/empresas")
+public class EmpresaControlador {
 
     @Autowired
     private EmpresaServicio servicio;

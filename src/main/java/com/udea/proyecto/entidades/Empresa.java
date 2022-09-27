@@ -1,77 +1,55 @@
 package com.udea.proyecto.entidades;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "empresa")
 public class Empresa {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_empresa")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_empresa")
+    @GenericGenerator(name = "secuencia_empresa", strategy="increment")
+    @Column(name = "id")
     private long id;
-    @Column(name = "nombre")
-    private String nombreEmpresa;
-    @Column(name = ("nit"))
-    private int nitEmpresa;
-    @Column(name = "telefono")
-    private String telefonoEmpresa;
-    @Column (name="direccion")
-    private String direccionEmpresa;
-    @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
-    private List<Empleado> empleados;
-    public Empresa(String nombreEmpresa, int nitEmpresa, String telefonoEmpresa, String direccionEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
-        this.nitEmpresa = nitEmpresa;
-        this.telefonoEmpresa = telefonoEmpresa;
-        this.direccionEmpresa = direccionEmpresa;
-    }
+
+    @ManyToOne
+    @JoinColumn(name = "idpais", referencedColumnName = "id")
+    private Pais pais;
+
+    @Column(name = "nombre", nullable = true, length = 100)
+    private String nombre;
 
     public Empresa() {
     }
-    //
 
-
-    //getters y setters
-
-    public String getNombreEmpresa() {
-        return nombreEmpresa;
+    public long getId() {
+        return id;
     }
 
-    public void setNombreEmpresa(String nombreEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getNitEmpresa() {
-        return nitEmpresa;
+    public Empresa(long id, Pais pais, String nombre) {
+        this.id = id;
+        this.pais = pais;
+        this.nombre = nombre;
     }
 
-    public void setNitEmpresa(int nitEmpresa) {
-        this.nitEmpresa = nitEmpresa;
+    public Pais getPais() {
+        return pais;
     }
 
-    public String getTelefonoEmpresa() {
-        return telefonoEmpresa;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 
-    public void setTelefonoEmpresa(String telefonoEmpresa) {
-        this.telefonoEmpresa = telefonoEmpresa;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getDireccionEmpresa() {
-        return direccionEmpresa;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setDireccionEmpresa(String direccionEmpresa) {
-        this.direccionEmpresa = direccionEmpresa;
-    }
-
-    public List<Empleado> getEmpleados() {
-        return empleados;
-    }
-
-    public void setEmpleados(List<Empleado> empleados) {
-        this.empleados = empleados;
-    }
 }

@@ -11,12 +11,12 @@ import java.util.List;
 
 @RequestMapping("/empleado")
 @RestController
-public class ControladorEmpleado {
+public class EmpleadoControlador {
     @Autowired
     private ServicioEmpleado sic;
     @GetMapping
     public List<Empleado> listar(){
-        return sic.listarEmpleados()
+        return sic.listarEmpleados();
     }
     @PostMapping
     public Empleado insertar (@RequestBody Empleado emp){

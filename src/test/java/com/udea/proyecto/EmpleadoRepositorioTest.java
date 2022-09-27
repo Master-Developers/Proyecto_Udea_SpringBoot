@@ -3,7 +3,7 @@ package com.udea.proyecto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.udea.proyecto.entidades.Empresa;
-import com.udea.proyecto.repositorio.RepositorioEmpleado;
+import com.udea.proyecto.repositorio.EmpleadoRepositorio;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -17,7 +17,7 @@ import Empresa.apiempresa.repositorio.RepositorioEmpresa;
     public class EmpleadoRepositorioTest {
 
         @Autowired
-        private RepositorioEmpleado repositorio;
+        private EmpleadoRepositorio repositorio;
 
         private Empresa generarEmpresa() {
             Empresa pais = new Empresa();
