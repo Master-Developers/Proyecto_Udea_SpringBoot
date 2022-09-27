@@ -2,8 +2,7 @@ package com.udea.proyecto.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tiendavideo.apitiendavideo.modelo.*;
-import tiendavideo.apitiendavideo.servicio.*;
+import Empresa.ApiEmpresa.servicio.*;
 
 import java.util.List;
 

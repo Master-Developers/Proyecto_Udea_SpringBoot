@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import tiendavideo.apitiendavideo.modelo.Usuario;
-import tiendavideo.apitiendavideo.seguridad.FiltroSeguridad;
+import Empresa.ApiEmpresa.modelo.Usuario;
+import Empresa.ApiEmpresa.seguridad.FiltroSeguridad;
 
 @RestController
 @RequestMapping("/usuarios")

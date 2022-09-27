@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import tiendavideo.apitiendavideo.repositorio.PaisRepositorio;
+import Empresa.ApiEmpresa.repositorio.PaisRepositorio;
 
-import tiendavideo.apitiendavideo.modelo.Pais;
+import Empresa.ApiEmpresa.modelo.Pais;
 
 @RestController
 @RequestMapping("/paises")

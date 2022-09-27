@@ -1,29 +1,50 @@
 package com.udea.proyecto.controlador;
 
-import com.udea.proyecto.entidades.Empleado;
-import com.udea.proyecto.servicios.ServicioEmpleado;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import Empresa.ApiEmpresa.modelo.*;
+import Empresa.ApiEmpresa.servicio.*;
 
-
-@RequestMapping("/empleado")
 @RestController
+@RequestMapping("/ciudades")
 public class EmpleadoControlador {
+
     @Autowired
-    private ServicioEmpleado sic;
-    @GetMapping
-    public List<Empleado> listar(){
-        return sic.listarEmpleados();
+    private EmpleadoServicio servicio;
+
+    @RequestMapping(value = "/listar", method = RequestMethod.GET)
+    public List<Empleado> listar() {
+        return servicio.listar();
     }
-    @PostMapping
-    public Empleado insertar (@RequestBody Empleado emp){
-            return sic.guardarEmpleados(emp);
-        }
-    @PutMapping
-    public Empleado actualizar(@RequestBody Empleado emp){
-            return sic.actualizarEmpleados(emp);
-        }
+
+    @RequestMapping(value = "/obtener/{id}", method = RequestMethod.GET)
+    public Empleado obtener(@PathVariable long id) {
+        return servicio.obtener(id);
+    }
+
+    @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
+    public List<Empleado> buscar(@PathVariable String nombre) {
+        return servicio.buscar(nombre);
+    }
+
+    @RequestMapping(value = "/{nombre}/buscarclientes", method = RequestMethod.GET)
+    public List<Tercero> buscarEmpleado(@PathVariable String nombre) {
+        return servicio.buscarEmpleado(nombre);
+    }
+
+    @RequestMapping(value = "/agregar", method = RequestMethod.POST)
+    public Empleado crear(@RequestBody Empleado Empleado) {
+        return servicio.guardar(Empleado);
+    }
+
+    @RequestMapping(value = "/modificar", method = RequestMethod.PUT)
+    public Empleado actualizar(@RequestBody Empleado Empleado) {
+        return servicio.guardar(Empleado);
+    }
+
+    @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
+    public boolean eliminar(@PathVariable long id) {
+        return servicio.eliminar(id);
+    }
 }

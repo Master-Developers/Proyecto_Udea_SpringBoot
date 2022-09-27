@@ -1,11 +1,12 @@
 package com.udea.proyecto.controlador;
-import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import tiendavideo.apitiendavideo.modelo.*;
-import tiendavideo.apitiendavideo.servicio.*;
+import java.util.List;
+import Empresa.ApiEmpresa.modelo.*;
+import Empresa.ApiEmpresa.servicio.*;
 
 @RestController
 @RequestMapping("/ciudades")
@@ -48,8 +49,3 @@ public class CiudadControlador {
     public boolean eliminar(@PathVariable long id) {
         return servicio.eliminar(id);
     }
-
-}
-
-public class CiudadControlador {
-}

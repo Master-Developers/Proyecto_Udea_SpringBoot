@@ -11,10 +11,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import tiendavideo.apitiendavideo.seguridad.FiltroSeguridad;
 
 @SpringBootApplication
-public class ApitiendavideoApplication {
+public class ApiEmpresaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApitiendavideoApplication.class, args);
+        SpringApplication.run(ApiEmpresaApplication.class, args);
     }
 
     @EnableWebSecurity
