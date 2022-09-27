@@ -4,7 +4,7 @@ import com.udea.proyecto.entidades.Empleado;
 
 import java.util.List;
 
-public interface IServicioEmpleado {
+public interface ServicioEmpleado {
     //Métodos abstractos
     public List<Empleado>listarEmpleados();
     public Empleado guardarEmpleados(Empleado empleado);

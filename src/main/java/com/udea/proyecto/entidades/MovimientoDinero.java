@@ -1,6 +1,7 @@
 package com.udea.proyecto.entidades;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "transacciones")

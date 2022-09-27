@@ -1,7 +1,7 @@
 package com.udea.proyecto.servicios;
 
 import com.udea.proyecto.entidades.Empleado;
-import com.udea.proyecto.repositorio.RepositorioEmpleado;
+import com.udea.proyecto.repositorio.EmpleadoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class ServicioEmpleado implements IServicioEmpleado {
 
     @Autowired
-    private RepositorioEmpleado repositorioEmpleado;
+    private EmpleadoRepositorio repositorioEmpleado;
     @Override
     public List<Empleado> listarEmpleados() {
         return repositorioEmpleado.findAll();
