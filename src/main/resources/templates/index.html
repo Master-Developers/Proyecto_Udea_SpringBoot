@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<!--Idioma de la pagina-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <title>Página</title>
+</head>
+
+<body>
+    <header class="Contheader">
+        <div class="logo">.</div>
+        <div class="tituloLogo">
+            <!--Etiqueta div se puede usar para todo-->
+            <h1 class="tituloP"> Masters_Developers </h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li class="lista"><a href="#">https://github.com/Master-Developers</a> </li>
+                <li class="lista"><a href="#">master_devs2022@outlock.com</a> </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <section class="Secc1">
+            <article class="Art" id="art2">
+                <h2>        Datos de Empresa        </h2>
+                <div class="logoEmpresa"></div>
+                <p>
+                    <a href="" class="txtemp">Ingresar Empresa</a>
+                    <div>  </div>
+                    <a th:href="@{empresas}" class="txtemp">Consultar tabla de empresas</a>
+                </p>
+            </article>
+            <article class="Art" id="art2">
+                <h2>        Datos de Empleado       </h2>
+                <div class="logoEmpleado"></div>
+                <p>
+                    <a href="" class="txtemp">Ingresar Empleados</a>
+                    <div>  </div>
+                    <a th:href="@{empleados}" class="txtemp">Consultar tabla de empleados</a>
+                </p>
+            </article>
+            <article class="Art" id="art2">
+                <h2>    Datos de Movimientos de dinero  </h2>
+                <div class="logoMovimientos"></div>
+                <p>
+                    <a href="" class="txtemp">Ingresar Movimientos</a>
+                    <div>  </div>
+                    <a th:href="@{movimientos}" class="txtemp">Consultar tabla de Movimientos de dinero</a>
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

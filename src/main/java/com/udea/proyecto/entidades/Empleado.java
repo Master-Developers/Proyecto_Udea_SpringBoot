@@ -111,4 +111,15 @@ public class Empleado {
     public void setId(long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", documento=" + documento +
+                ", celular='" + celular + '\'' +
+                ", correo='" + correo + '\'' +
+                ", rol=" + rol +
+                '}';
+    }
 }

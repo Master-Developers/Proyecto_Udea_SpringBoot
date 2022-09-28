@@ -32,7 +32,7 @@ public class ServicioEmpresa implements IServicioEmpresa{
     }
 
     @Override
-    public void borrarEmpresa(Integer numid) {
+    public void borrarEmpresa(Long numid) {
         repositorioEmpresa.deleteById(numid.longValue());
     }
 }

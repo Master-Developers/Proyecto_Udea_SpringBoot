@@ -96,5 +96,14 @@ public class MovimientoDinero {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
-}
 
+    @Override
+    public String toString() {
+        return "MovimientoDinero{" +
+                "monto=" + monto +
+                ", fecha=" + fecha +
+                ", empleado=" + empleado +
+                ", empresa=" + empresa +
+                '}';
+    }
+}

@@ -16,13 +16,14 @@ public class Empresa {
     private long id;
     @Column(name = "nombre")
     private String nombreEmpresa;
-    @Column(name = ("nit"))
+    @Column(name = "nit", unique = true)
     private int nitEmpresa;
     @Column(name = "telefono")
     private String telefonoEmpresa;
     @Column (name="direccion")
     private String direccionEmpresa;
     //@JsonIgnore
+    @JsonIgnore
     @OneToMany(mappedBy = "empresa",cascade = CascadeType.ALL)
     private List<Empleado> empleados;
 
@@ -86,5 +87,15 @@ public class Empresa {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "nombreEmpresa='" + nombreEmpresa + '\'' +
+                ", nitEmpresa=" + nitEmpresa +
+                ", telefonoEmpresa='" + telefonoEmpresa + '\'' +
+                ", direccionEmpresa='" + direccionEmpresa + '\'' +
+                '}';
     }
 }

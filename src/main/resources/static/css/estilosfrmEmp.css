@@ -1,0 +1,57 @@
+.TabEmp{
+    background-color: rgb(18, 6, 88);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 10px 15px 10px rgb(13, 13, 14);
+}
+legend{
+    background-color: #000000;
+    color: gold;
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+input{
+    display: block;
+    width: 100%;
+    height: 20px;
+    border: 3px solid black;
+    background: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+label{
+    color: white;
+    font-size: 20px;
+}
+
+.formulario{
+    background-color: rgb(18, 6, 88);
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+}
+
+[type="radio"]{
+    display: inline;
+    width: 15%;
+}
+
+.boton{
+    width: 130px;
+    height: 30px;
+    background-color: rgb(7, 7, 7);
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 2px solid gold;
+    color: gold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}

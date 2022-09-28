@@ -2,9 +2,12 @@ package com.udea.proyecto.servicios;
 
 import com.udea.proyecto.entidades.Empleado;
 import com.udea.proyecto.repositorio.RepositorioEmpleado;
+import org.hibernate.annotations.common.reflection.ReflectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +43,12 @@ public class ServicioEmpleado implements IServicioEmpleado {
     }
     @Override
     public Empleado actualizarPorId(Long id, Map<Object, Object> objectMap) {
-        return null;
+        Empleado emp=repositorioEmpleado.findById(id).get();
+        objectMap.forEach((key,value)->{
+            Field field = ReflectionUtils.findField(Empleado.class,(String) key);
+            field.setAccessible(true);
+            ReflectionUtils.setField(field,emp,value);
+        });
+        return repositorioEmpleado.save(emp);
     }
 }

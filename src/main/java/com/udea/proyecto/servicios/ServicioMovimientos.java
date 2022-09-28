@@ -22,7 +22,6 @@ public class ServicioMovimientos implements IServicioMovimientos {
 
         return repositorioMovimientos.save(mov);
     }
-
     @Override
     public MovimientoDinero buscarMovimientosId(Integer numid) {
         return repositorioMovimientos.findById(numid.longValue()).get();
