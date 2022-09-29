@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilosfrmEmp.css">
-    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/estilosfrmEmp.css}">
+    <title>MovimientosDinero</title>
 </head>
 
 <body>
     <fieldset class="TabEmp">
         <legend>Registrar Movimiento de Dinero</legend>
-        <form action="" method="" class="formulario">
+        <form th:action="@{/movimientos/guardar}" th:object="${movimientosinsertar}" method="POST" class="formulario">
             <label for="a">Monto
-                <input type="text" id="a" placeholder="Monto" required>
+                <input type="text" id="a" placeholder="Monto" required th:field="*{monto}">
             </label>
             <label for="b">Fecha de registro
-                <input type="date" id="b" placeholder="Fecha">
+                <input type="text" id="b" placeholder="Fecha" th:field="*{fecha}">
             </label>
             <input type="submit" class="boton" value="Registrar">
         </form>

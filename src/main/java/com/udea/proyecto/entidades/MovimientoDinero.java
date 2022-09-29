@@ -19,7 +19,7 @@ public class MovimientoDinero {
     @Column(name = "monto")
     private double monto;
     @Column(name = "fecha")
-    private Date fecha;
+    private String fecha;
 
     @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empleado.class)
     @JoinColumn(name = "id_empleado")
@@ -32,6 +32,7 @@ public class MovimientoDinero {
     public MovimientoDinero(Empleado empleado, double monto) {
         this.empleado = empleado;
         this.monto = monto;
+        this.fecha=fecha;
     }
 
     public MovimientoDinero() {
@@ -81,11 +82,11 @@ public class MovimientoDinero {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

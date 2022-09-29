@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <!--Idioma de la pagina-->
 <head>
     <meta charset="UTF-8">
@@ -24,14 +24,21 @@
             </ul>
         </nav>
     </header>
-    
+
+    <div sec:authorize="!isAuthenticated()">
+        <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <p>You are logged in!</p>
+    </div>
+
     <main class="main">
         <section class="Secc1">
             <article class="Art" id="art2">
                 <h2>        Datos de Empresa        </h2>
                 <div class="logoEmpresa"></div>
                 <p>
-                    <a href="" class="txtemp">Ingresar Empresa</a>
+                    <a th:href="@{empresas/nuevo}" class="txtemp">Ingresar Empresa</a>
                     <div>  </div>
                     <a th:href="@{empresas}" class="txtemp">Consultar tabla de empresas</a>
                 </p>
@@ -40,7 +47,7 @@
                 <h2>        Datos de Empleado       </h2>
                 <div class="logoEmpleado"></div>
                 <p>
-                    <a href="" class="txtemp">Ingresar Empleados</a>
+                    <a th:href="@{empleados/nuevo}" class="txtemp">Ingresar Empleados</a>
                     <div>  </div>
                     <a th:href="@{empleados}" class="txtemp">Consultar tabla de empleados</a>
                 </p>
@@ -49,7 +56,7 @@
                 <h2>    Datos de Movimientos de dinero  </h2>
                 <div class="logoMovimientos"></div>
                 <p>
-                    <a href="" class="txtemp">Ingresar Movimientos</a>
+                    <a th:href="@{movimientos/nuevo}" class="txtemp">Ingresar Movimientos</a>
                     <div>  </div>
                     <a th:href="@{movimientos}" class="txtemp">Consultar tabla de Movimientos de dinero</a>
                 </p>

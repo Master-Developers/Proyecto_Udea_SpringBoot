@@ -24,8 +24,17 @@ public class ControladorEmpleado {
         modelo.addAttribute("empleadoo",sic.listarEmpleados());
         return "tablaEmpleado";
     }
-   /* @PostMapping
-    public Empleado insertar(@RequestBody Empleado emp) {return sic.guardarEmpleados(emp);}
+    @GetMapping("empleados/nuevo")
+    public String formularioRegistro(Model modelo) {
+        modelo.addAttribute("empleadosinsertar", new Empleado());
+        return "frmEmpleados";
+    }
+    @PostMapping("empleados/guardar")
+    public String insertar(Empleado emp) {
+         sic.guardarEmpleados(emp);
+         return "redirect:/empleados";
+        }
+   /* public Empleado insertar(@RequestBody Empleado emp) {return sic.guardarEmpleados(emp);}
 
     @PutMapping
     public Empleado actualizar(@RequestBody Empleado emp) { return sic.actualizarEmpleados(emp);}

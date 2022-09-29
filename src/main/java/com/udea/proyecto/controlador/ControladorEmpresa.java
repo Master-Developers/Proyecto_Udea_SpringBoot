@@ -3,6 +3,8 @@ package com.udea.proyecto.controlador;
 import com.udea.proyecto.entidades.Empresa;
 import com.udea.proyecto.servicios.ServicioEmpresa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +23,23 @@ public class ControladorEmpresa {
         modelo.addAttribute("empresaa",sic.listarEmpresas());
         return "tablaEmpresa";
     }
-/*
-    @PostMapping
-    public Empresa insertar (@RequestBody Empresa emp){return sic.guardarEmpresa(emp); }
-    @PutMapping
+    @GetMapping("empresas/nuevo")
+    public String formularioRegistro(Model modelo){
+       modelo.addAttribute("empresasinsertar", new Empresa());
+       return "frmEmpresas";
+    }
+    @PostMapping("empresas/guardar")
+    public String insertar (Empresa emp){
+        sic.guardarEmpresa(emp);
+        return "redirect:/empresas"; }
+
+    @GetMapping("/")
+    public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
+        return "index";
+    }
+
+    //public Empresa insertar (@RequestBody Empresa emp){return sic.guardarEmpresa(emp); }
+  /*  @PutMapping
     public Empresa actualizar(@RequestBody Empresa emp){
 
         return sic.actualizarEmpresa(emp);

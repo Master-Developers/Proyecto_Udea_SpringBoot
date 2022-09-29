@@ -23,8 +23,17 @@ public class ControladorMovimientos {
         modelo.addAttribute("movss", sic.listarMovimientos());
         return "tablaMovimientos";
     }
-    /*@PostMapping
-    public MovimientoDinero insertar (@RequestBody MovimientoDinero mov){
+    @GetMapping("movimientos/nuevo")
+    public String formularioRegistro(Model modelo) {
+        modelo.addAttribute("movimientosinsertar", new MovimientoDinero());
+        return "frmMovimientos";
+    }
+    @PostMapping("movimientos/guardar")
+    public String insertar (MovimientoDinero mov){
+         sic.guardarMovimiento(mov);
+         return "redirect:/movimientos";
+    }
+    /*public MovimientoDinero insertar (@RequestBody MovimientoDinero mov){
         return sic.guardarMovimiento(mov); }
     @PutMapping
     public MovimientoDinero actualizar(@RequestBody MovimientoDinero mov){return sic.actualizarMovimientos(mov); }
