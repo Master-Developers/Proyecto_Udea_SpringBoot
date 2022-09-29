@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/estilostabla.css}">
+    <title>Tabla Empleados</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Celular</th>
+            <th>Correo</th>
+            <th>Rol</th>
+        </tr>
+        <tr th:each="i:${empleadoo}">
+            <td th:text="${i.nombre}"></td>
+            <td th:text="${i.documento}"></td>
+            <td th:text="${i.celular}"></td>
+            <td th:text="${i.correo}"></td>
+            <td th:text="${i.rol}"></td>
+        </tr>
+    </table>
+</body>
+</html>

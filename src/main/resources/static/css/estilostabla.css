@@ -1,0 +1,25 @@
+table{
+    background: blueviolet;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 40%;
+    height: 150px;
+}
+tr{
+    background-color: orange;
+
+}
+td{
+    background-color: rgb(156, 233, 247);
+    color: green;
+    font-size: 14px;
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+th{
+    color: black;
+    font-size: 20;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+}

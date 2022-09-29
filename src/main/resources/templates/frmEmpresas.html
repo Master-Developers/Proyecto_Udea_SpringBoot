@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/estilosfrmEmp.css}">
+    <title>Empresa</title>
+</head>
+<body>
+    <fieldset class="TabEmp">
+        <legend>Registrar Empresa</legend>
+        <form th:action="@{/empresas/guardar}"th:object="${empresasinsertar}" method="POST" class="formulario">
+            <label for="nom">Nombre
+                <input type="text" id="nom" placeholder="Nombre" th:field="*{nombreEmpresa}">
+            </label>
+            <label for="nit">NIT
+                <input type="number" id="nit" placeholder="NIT" required th:field="*{nitEmpresa}">
+            </label>
+            <label for="tel">Telefono
+                <input type="text" id="tel" placeholder="Telefono" th:field="*{telefonoEmpresa}">
+            </label>
+            <label for="dir">Direccion
+                <input type="text" id="dir" placeholder="Direccion" th:field="*{direccionEmpresa}">
+            </label>
+            <input type="submit" class="boton" value="Registrar">
+        </form>
+    </fieldset>
+</body>
+</html>

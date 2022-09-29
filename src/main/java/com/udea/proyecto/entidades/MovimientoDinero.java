@@ -1,13 +1,38 @@
 package com.udea.proyecto.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+@Entity
+@Table(name = "transacciones")
+@JsonIgnoreProperties({"empresa","empleado"})
+//@JsonIgnoreProperties({"empleado"})
 public class MovimientoDinero {
     // Atributos-----------------------------------------------------------------------
-    private Empleado empleado;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_transaccion")
+    private long id;
+    @Column(name = "monto")
     private double monto;
+    @Column(name = "fecha")
+    private String fecha;
+
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empleado.class)
+    @JoinColumn(name = "id_empleado")
+    private Empleado empleado;
+    @ManyToOne(fetch = FetchType.LAZY,targetEntity = Empresa.class)
+    @JoinColumn(name = "id_empresa")
+    private  Empresa empresa;
+
 
     public MovimientoDinero(Empleado empleado, double monto) {
         this.empleado = empleado;
         this.monto = monto;
+        this.fecha=fecha;
     }
 
     public MovimientoDinero() {
@@ -48,5 +73,38 @@ public class MovimientoDinero {
     public void setMonto(double monto) {
         this.monto = monto;
     }
-}
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    @Override
+    public String toString() {
+        return "MovimientoDinero{" +
+                "monto=" + monto +
+                ", fecha=" + fecha +
+                ", empleado=" + empleado +
+                ", empresa=" + empresa +
+                '}';
+    }
+}
